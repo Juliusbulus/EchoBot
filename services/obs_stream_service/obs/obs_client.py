@@ -1,0 +1,2 @@
+class OBSClient:
+    pass

@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile*
+docker-compose.yml
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+pip-cache/
+.tox/
+.pytest_cache/
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Project specific
+/logs
+/state
+/media
+/app/media;C
+/logs;C
+**/.env
+*.md

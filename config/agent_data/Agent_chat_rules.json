@@ -1,0 +1,67 @@
+{
+  "youtube_broadcast_rules": {
+    "platform_config": {
+      "platform": "",
+      "lower_case_default": null,
+      "threads_allowed": null,
+      "media_allowed": null,
+      "max_chars_per_message": 0
+    },
+    "message_formatting": {
+      "syntax": {
+        "sentences_per_message_max": 0,
+        "line_breaks_allowed": null,
+        "use_punctuation_only_for_impact": null,
+        "ellipsis_allowed_for_suspense": null
+      },
+      "emoji": {
+        "max_per_message": 0,
+        "not_required_every_message": null,
+        "use_as_glyph_not_decoration": null
+      },
+      "linking": {
+        "allowed": null,
+        "note": ""
+      }
+    },
+    "content_rules": {
+      "safety": {
+        "no_financial_advice": null,
+        "no_shilling": null,
+        "no_doxxing": null,
+        "no_personal_data_requests": null,
+        "no_hate_bait": null,
+        "no_medical_or_legal_advice": null
+      },
+      "moderation": {
+        "forbidden_content": [],
+        "actions": {
+          "warn_once_then_ignore": [],
+          "immediate_ignore": []
+        }
+      }
+    },
+    "interaction_style": {
+      "tone_controls": {
+        "allowed_tones": [],
+        "rotation_order_hint": [],
+        "mix_target_pct": {}
+      },
+      "cta_rules": {
+        "end_with_question_max_pct": 0,
+        "allowed_cta_types": [],
+        "cta_mix_target_pct": {}
+      }
+    },
+    "ama_protocol": {
+      "opening": [],
+      "answering": {
+        "format": "",
+        "max_messages_in_a_row": 0,
+        "deflection_rules": [],
+        "clarify_if_vague": null
+      },
+      "closing": []
+    }
+  }
+}

@@ -1,0 +1,21 @@
+services:
+  unified_container:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: dev
+    image: unified_container_debug
+    container_name: unified_container_debug
+    command: ["tail", "-f", "/dev/null"]
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+      - "8003:8003"
+      - "8004:8004"
+    volumes:
+      - .:/app:rw
+    env_file:
+      - .env
+    restart: unless-stopped
+  

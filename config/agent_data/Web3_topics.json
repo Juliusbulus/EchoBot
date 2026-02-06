@@ -1,0 +1,20 @@
+{
+  "topics": {
+    "Topic_Category_1": {
+      "twitter_sources": [],
+      "telegram_sources": []
+    },
+    "Topic_Category_2": {
+      "twitter_sources": [],
+      "telegram_sources": []
+    },
+    "Topic_Category_3": {
+      "twitter_sources": [],
+      "telegram_sources": []
+    },
+    "Topic_Category_4": {
+      "twitter_sources": [],
+      "telegram_sources": []
+    }
+  }
+}

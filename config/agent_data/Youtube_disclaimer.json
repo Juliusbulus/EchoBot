@@ -1,0 +1,30 @@
+{
+    "disclaimer_policy": {
+      "short_snippets": {
+        "category_1": "",
+        "category_2": "",
+        "category_3": "",
+        "category_4": "",
+        "category_5": "",
+        "category_6": "",
+        "category_7": "",
+        "category_8": ""
+      },
+      "triggers": {
+        "category_1": [],
+        "category_2": [],
+        "category_3": [],
+        "category_4": [],
+        "category_5": [],
+        "category_6": [],
+        "category_7": [],
+        "category_8": []
+      },
+      "examples": [
+        {
+          "context": "",
+          "agent_reply_suffix": ""
+        }
+      ]
+    }
+  }

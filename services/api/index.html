@@ -1,0 +1,285 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+
+    <title>Live Logs</title>
+    <style>
+        :root {
+            --bg: #0b0b0c;
+            --fg: #e7e7e7;
+            --muted: #8a8a8a;
+            --accent: #E60B40;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font: 14px/1.35 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        }
+
+        .wrap {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 8px 12px;
+            border-bottom: 1px solid #ffffff22;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        header .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        header .title {
+            padding-left: 12px;
+            font-weight: 700;
+            letter-spacing: .3px;
+        }
+
+        header .muted {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        #logbox {
+            flex: 1;
+            overflow: hidden;
+            padding: 16px 4px;
+            white-space: pre-wrap;
+            /* preserve \n but allow wrapping */
+            word-break: break-word;
+            /* break long tokens */
+            overflow-wrap: anywhere;
+            /* wrap very long words/urls */
+            display: flex;
+            /* st4ck items as blocks */
+            flex-direction: column;
+            gap: 4px;
+            /* space between log cards */
+        }
+
+        #logbox::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #logbox::-webkit-scrollbar-thumb {
+            background: #ffffff22;
+            border-radius: 8px;
+        }
+
+        .log-line {
+            white-space: pre-wrap;
+            /* keep internal newlines */
+            line-height: 1.4;
+            padding: 24px;
+            background: #0F0F0F;
+            /* slightly lighter than page bg */
+            /* subtle hairline border */
+            box-shadow: 0 2px 8px #00000066 inset, 0 0 0 1px #00000055;
+            /* soft depth */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .log-label,
+        .log-time {
+            background: #E60B40;
+            padding: 2px 6px;
+
+            leading-trim: both;
+
+            text-edge: cap;
+            font-family: "Space Mono", monospace;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+            /* 150% */
+            letter-spacing: -0.32px;
+        }
+
+        .log-body {
+            white-space: pre-wrap;
+            font-size: 14px;
+
+        }
+
+        @media (max-width: 420px) {
+            #logbox {
+                padding: 12px 8px;
+            }
+
+            .log-line {
+                padding: 8px 10px;
+            }
+        }
+
+        .controls {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .toggle {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--muted);
+            user-select: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <!-- <div class="dot"></div> -->
+            <div class="title">Agent Logs</div>
+            <!-- <div class="muted">Agent Name</div> -->
+        </header>
+        <div id="logbox"></div>
+    </div>
+
+    <script>
+        const logbox = document.getElementById("logbox")
+        const MAX_CLIENT_LINES = 2000 // keep client buffer bounded
+
+        const headers = [
+            "log message:",
+            "log message:",
+            "log message:",
+            "log message:",
+            "log message:",
+            "log message:",
+            "log message:",
+            "log message:",
+            "log message:",
+        ]
+
+        function getRandomElement(array) {
+            if (!array || array.length === 0) {
+                return undefined;
+            }
+            const randomIndex = Math.floor(Math.random() * array.length);
+            return array[randomIndex];
+        }
+
+        function appendLine(text) {
+            if (text == null || text === "") return
+
+            // Parse timestamp from server (format: "HH:MM|message")
+            let timestamp = "00:00"
+            let message = text
+
+            if (text.includes("|")) {
+                const parts = text.split("|", 2)
+                timestamp = parts[0]
+                message = parts[1]
+            }
+
+            const el = document.createElement("div")
+            el.className = "log-line"
+
+            const header = document.createElement("div")
+            header.className = "log-header"
+
+            const labelSpan = document.createElement("span")
+            labelSpan.className = "log-label"
+            labelSpan.textContent = getRandomElement(headers)
+
+            const timeSpan = document.createElement("span")
+            timeSpan.className = "log-time"
+            timeSpan.textContent = timestamp
+
+            header.appendChild(labelSpan)
+            header.appendChild(timeSpan)
+
+            const body = document.createElement("div")
+            body.className = "log-body"
+            body.textContent = message
+
+            el.appendChild(header)
+            el.appendChild(body)
+
+            logbox.appendChild(el)
+        }
+
+        function scrollToBottom() {
+            requestAnimationFrame(() => {
+                logbox.scrollTop = logbox.scrollHeight
+            })
+        }
+
+        function trimIfNeeded() {
+            while (logbox.children.length > MAX_CLIENT_LINES) {
+                logbox.removeChild(logbox.firstChild)
+            }
+        }
+
+        async function loadInitial() {
+            try {
+                const res = await fetch("/logs", { cache: "no-store" })
+                const text = await res.text()
+                logbox.textContent = ""
+                const lines = text.split("\n")
+                for (const line of lines) {
+                    appendLine(line)
+                }
+                trimIfNeeded()
+                scrollToBottom()
+            } catch (e) {
+                console.error("Failed to load initial logs", e)
+            }
+        }
+
+        function startStream() {
+            const es = new EventSource("/stream")
+            es.onmessage = (e) => {
+                appendLine(e.data)
+                trimIfNeeded()
+                scrollToBottom()
+            }
+            es.onerror = () => {
+                // Browser will auto-reconnect
+            }
+        }
+
+        loadInitial().then(startStream)
+
+    </script>
+</body>
+
+</html>

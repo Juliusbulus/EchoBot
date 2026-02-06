@@ -1,0 +1,21 @@
+{
+  "agent": {
+    "identity": {
+      "name": "Agent",
+      "aliases": [],
+      "description": "",
+      "age_over_25": true,
+      "purpose": ""
+    },
+    "knowledge_base": {}
+  },
+  "behavior_rules": {
+      },
+      "communication": {
+        "no_corporate_PR_syntax": true
+      },
+      "privacy_safety": {
+        "no_doxxing": true,
+        "no_personal_data_requests": true
+      }
+}
