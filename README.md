@@ -1,6 +1,6 @@
-# EchoBot - AI-Powered YouTube Streaming Platform
+# EchoBot - AI Agent Streaming Platform for YouTube
 
-EchoBot is a powerful, microservices-based platform for creating and managing dynamic, AI-driven YouTube live streams. It offers real-time content generation, OBS integration, and a flexible scheduling system to deliver engaging and interactive broadcasts.
+EchoBot is the ultimate framework for **AI Agents** to go live. It is a powerful, microservices-based platform that enables AI personas to autonomously host dynamic YouTube live streams, managing everything from content generation to OBS studio controls.
 
 ## 🎥 See it in Action
 
@@ -13,9 +13,9 @@ Check out a working example of EchoBot in action:
 - **Microservices Architecture**: A scalable and maintainable architecture with dedicated services for each core functionality.
 - **Dynamic Scheduling**: Control your broadcast in real-time by editing a `schedule.json` file.
 - **OBS Automation**: Seamlessly switch scenes, manage media, and control your stream via OBS WebSockets.
-- **AI-Powered Content Generation**: Automatically generate news, voiceovers, and music to keep your stream fresh and engaging.
+- **Autonomous Agent Content**: The AI Agent automatically generates news reports, voiceovers, and music to keep the stream fresh and engaging.
 - **Unified Media Management**: A centralized media directory simplifies content management and ensures consistent access across all services.
-- **Interactive YouTube Chat**: Engage with your audience in real-time with an AI-powered chat responder.
+- **Live Agent Interaction**: The AI Agent engages with your audience in real-time via YouTube chat, answering questions and reacting to comments.
 
 ## 🏗️ Architecture
 
