@@ -1,5 +1,5 @@
 # EchoBot - AI Agent Streaming Platform for YouTube
-
+## contributor credit
 EchoBot is the ultimate framework for **AI Agents** to go live. It is a powerful, microservices-based platform that enables AI personas to autonomously host dynamic YouTube live streams, managing everything from content generation to OBS studio controls.
 
 ## 🎥 See it in Action
@@ -276,3 +276,11 @@ EchoBot uses a unified media structure to simplify content management. All media
 -   **OBS Connection Failed**: Ensure OBS is running and your WebSocket settings are correct.
 -   **Container Can't Write Files**: Check that the `{PROJECT_ROOT}/app/media` directory has the correct permissions.
 -   **Path Conversion Not Working**: Verify that `MEDIA_HOST_DIR` and `MEDIA_CONTAINER_DIR` are set correctly in your `.env` file.
+Add contributor credit badge to README (closes #9)”
+## Contributor Credit
+
+Merged contributors get a Solana wallet badge for transparent tips, airdrops, or rewards.
+
+[![6z7h5HE7xLSjPmWkAGhDTyPN9jnYBrwQyvyzCv2bv95m]
+
+Example for a contributor – future merged PRs can add similar badges.
